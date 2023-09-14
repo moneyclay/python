@@ -1,0 +1,196 @@
+#1)Find gcd of two numbers
+
+def gcd(a,b):
+    if a%b==0:
+        return b
+    else:
+        return gcd(b,a%b)
+a=int(input("Enter the 1st number : "))
+b=int(input("Enter the 2nd number: "))
+print(f"GCD of {a} and {b} is {gcd(a,b)}")
+
+
+
+#2)To find the square root of the given number
+
+num = int(input("Enter the number to find the square root: "))
+approx = 0.5*num
+better = 0.5*(approx+num/approx)
+while approx!=better:
+    approx=better
+    better = 0.5*(approx+num/approx)
+print("The square root of %d is %d"%(num,better))
+
+
+
+#3)To find Exponential of the given number
+
+base = int(input("Enter the base value: "))
+power = int(input("Enter the power value: "))
+def expo(b,p):
+    exp_value=1
+    for i in range(p):
+        exp_value=exp_value*b
+    return exp_value
+result=expo(base,power)
+print(f"The exponential value of base: {base} and power {power} is: {result}")
+
+
+
+
+#4)Find Maximum number from a list
+
+list=[]
+length_of_list=int(input("Enter the lenth of the list you want to create: "))
+for i in range(length_of_list):
+    list.append(int(input(f"Enter value at index {i}")))
+print("The Maximum value in the given list is: "+str(max(list)))
+print("The Minimum value in the given list is: "+str(min(list)))
+
+
+
+
+#5)Linear Search
+
+def linear_search(l):
+    for i in range(length_of_list):
+        if l[i]==x:
+            return i
+    return -1
+list=[]
+length_of_list=int(input("Enter the length of the list you want to create: "))
+for i in range(length_of_list):
+    list.append(int(input("Enter value at index %d"%(i))))
+x=int(input("Enter the element that you want to search in the list: "))
+result=linear_search(list)
+if result == -1:
+    print("The element is not found")
+else:
+    print(f"The element is found at Index {result}")
+
+
+
+#6)Binary Search
+
+def binary_search(arr,x):
+    low=0
+    high=len(arr)-1
+    while low<=high:
+        mid=(low+high)//2
+        if arr[mid]==x:
+            return mid
+        elif arr[mid]>x:
+            high=mid-1
+        else:
+            low=mid+1
+list=[]
+n=int(input("Enter the number of elements: "))
+for i in range(n):
+    list.append(int(input(f"Enter value at Index {i}: ")))
+x=int(input("Enter the element you want to search in the list: "))
+result=binary_search(list,x)
+if result==None:
+    print("The element not found")
+else:
+    print(f"The element is found at Index {result}")
+
+
+
+#7)selection sort
+
+def selection_sort(a):
+    for j in range(len(a)):
+        min_i=j                                        
+        for i in range(j+1,len(a)):
+            if a[min_i]>a[i]:
+                min_i=i
+        a[min_i],a[j]=a[j],a[min_i]
+    return a
+           
+List=[]
+n=int(input("Enter the n:"))
+for i in range(n):
+    List.append(int(input("Enter the index at %d :"%(i))))
+insertion_sort(List)
+print("Sorted array:",List)
+
+
+
+#8)insertion sort
+
+def insertion_sort(arr):
+    for i in range(1,len(arr)):
+        j=i-1                                         
+        while j>=0 and arr[j]>arr[j+1]:
+            arr[j],arr[j+1]=arr[j+1],arr[j]
+            j=j-1
+List=[]
+n=int(input("Enter the n:"))
+for i in range(n):
+    List.append(int(input("Enter the index at %d :"%(i))))
+insertion_sort(List)
+print("Sorted array:",List)
+
+
+
+
+#9)merge sort
+
+def merge_sort(arr):
+    if len(arr)>1:
+        left_arr=arr[:len(arr)//2]
+        right_arr=arr[len(arr)//2:]
+        merge_sort(left_arr)
+        merge_sort(right_arr)                                  
+        i=0
+        j=0
+        k=0
+        while i<len(left_arr) and j<len(right_arr):
+            if left_arr[i]<right_arr[j]:
+                arr[k]=left_arr[i]
+                i+=1
+           
+            else:
+                arr[k]=right_arr[j]
+                j+=1
+            k+=1
+                
+        while i<len(left_arr):
+            arr[k]=left_arr[i]
+            i+=1
+            k+=1
+        while j<len(right_arr):
+            arr[k]=right_arr[j]
+            j+=1
+            k+=1
+List=[]
+n=int(input("Enter the n:"))
+for i in range(n):
+    List.append(int(input("Enter the index at %d :"%(i))))
+merge_sort(List)
+print("Sorted array:",List)
+
+
+
+
+#10)prime number
+
+def is_prime(num):
+    if num<=2:
+        return True
+    for i in range(2,num):
+        if num%i==0:
+            return False
+    else:
+        return True
+                                                        
+def print_primes_up_to(limit):
+    for num in range(2,limit+1):
+        if is_prime(num):
+            print(num,end=" ")
+limit=int(input("Enter the limit:"))
+print("prime no up to limit are: ")
+print_primes_up_to(limit)
+
+
+

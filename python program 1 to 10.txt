@@ -111,7 +111,7 @@ List=[]
 n=int(input("Enter the n:"))
 for i in range(n):
     List.append(int(input("Enter the index at %d :"%(i))))
-insertion_sort(List)
+selection_sort(List)
 print("Sorted array:",List)
 
 
